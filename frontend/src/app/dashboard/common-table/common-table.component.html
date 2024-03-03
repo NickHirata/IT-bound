@@ -1,0 +1,49 @@
+<mat-card [style.width]="cardHeaderWidth">
+  <mat-card-header [style.width]="cardHeaderWidth">
+    <mat-card-title> {{title}} </mat-card-title>
+    <mat-card-subtitle *ngIf="selectedTable === 'impedimentos'">
+      <table mat-table [dataSource]="impedimento" class="mat-elevation-z3">
+        <ng-container matColumnDef="atividade">
+          <th mat-header-cell *matHeaderCellDef>Atividade</th>
+          <td mat-cell *matCellDef="let element">{{ element.atividade }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="motivo">
+          <th mat-header-cell *matHeaderCellDef>Motivo</th>
+          <td mat-cell *matCellDef="let element">{{ element.motivo }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </mat-card-subtitle>
+
+    <mat-card-subtitle *ngIf="selectedTable === 'historico'">
+      <table mat-table [dataSource]="impedimento" class="mat-elevation-z3">
+        <ng-container matColumnDef="atividade">
+          <th mat-header-cell *matHeaderCellDef>Atividade</th>
+          <td mat-cell *matCellDef="let element">{{ element.atividade }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="motivo">
+          <th mat-header-cell *matHeaderCellDef>Termino</th>
+          <td mat-cell *matCellDef="let element">{{ element.motivo }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Duração</th>
+          <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </mat-card-subtitle>
+
+  </mat-card-header>
+</mat-card>
